@@ -143,7 +143,7 @@ O score e recalculado ao criar ou atualizar lead:
 - Empresa ativa: +2
 - Aberta nos ultimos 24 meses: +2
 
-## CNPJ
+## Busca por empresas/CNPJ
 
 O servico `cnpjService` usa uma interface modular:
 
@@ -154,6 +154,17 @@ interface CnpjProvider {
 ```
 
 O provider inicial usa BrasilAPI sem chave paga. Tambem existe um provider placeholder para dados abertos da Receita Federal, preparado para uma futura consulta local em arquivos publicos estruturados.
+
+A tela `/cnpj-search` nao exige que voce saiba o CNPJ. Ela permite filtrar por:
+
+- cidade;
+- UF;
+- nicho/CNAE;
+- situacao cadastral;
+- periodo de abertura;
+- limite de resultados.
+
+O MVP encontra CNPJs em paginas publicas de forma controlada, enriquece cada CNPJ pela BrasilAPI e aplica os filtros. Para listar bases completas com alta confiabilidade, o proximo passo correto e importar os dados abertos oficiais da Receita Federal para uma base local pesquisavel.
 
 ## Busca publica
 
